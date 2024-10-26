@@ -1,0 +1,71 @@
+# Ignore build directories
+target/
+build/
+bin/
+out/
+
+# Ignore IDE specific files
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Visual Studio Code ###
+.vscode/
+
+# Maven specific
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Gradle specific
+.gradle/
+build/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Logs
+*.log
+
+# Ignore compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.swp
+*.swo
+*.lock
+*.tmp
+*.temp
+*.bak
+
+# Ignore specific configuration files
+*.properties
+*.yml
+*.yaml
+
+# Ignore testing results
+/test-output/
+test-reports/
