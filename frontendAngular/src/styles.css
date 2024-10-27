@@ -1,4 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+mat-display-medium,
+.mat-typography .mat-display-medium,
+.mat-typography h2,
+h1,
+h3,
+h4,
+p {
+    font-family: "Outfit", sans-serif !important;
+    font-optical-sizing: auto;
+}

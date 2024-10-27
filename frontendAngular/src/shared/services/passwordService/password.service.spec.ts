@@ -33,10 +33,7 @@ describe('PasswordService', () => {
       includeSpecialChars: true
     };
 
-    service.generatePassword(mockParams.length, mockParams.includeUppercase, 
-                             mockParams.includeLowercase, 
-                             mockParams.includeNumbers, 
-                             mockParams.includeSpecialChars).subscribe();
+    service.generatePassword(mockParams).subscribe();
 
     const req = httpMock.expectOne(`${service.apiUrl}/generate_password`);
     expect(req.request.method).toBe('POST');

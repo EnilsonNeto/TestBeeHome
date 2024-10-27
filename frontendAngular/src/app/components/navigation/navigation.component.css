@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #001123;
+    padding: 10px 20px; 
+    color: white;
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .navbar-content {
+    text-align: center; 
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  a {
+    font-style: none;
+    color: #ffffff !important;
+    margin-right: 10px;
+  }
+
+  a i {
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover i {
+    color: #9fcefd;
+  }
+  

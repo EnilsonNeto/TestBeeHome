@@ -19,7 +19,7 @@ import com.projectBeehome.gerador_senhas.service.PasswordService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200") // Adicione esta linha
+@CrossOrigin(origins = "http://localhost:4200")
 public class PasswordController {
 
     @Autowired
