@@ -22,10 +22,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MatToolbarModule } from '@angular/material/toolbar'; import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { PasswordService } from '../shared/services/passwordService/password.service';
 import { AlertService } from '../shared/services/alertService/alert.service';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AlertService } from '../shared/services/alertService/alert.service';
     PasswordGeneratorComponent,
     PasswordHistoryComponent,
     ProjectDescriptionComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { AlertService } from '../shared/services/alertService/alert.service';
     SweetAlert2Module,
     MatSliderModule,
     MatSlideToggleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule
   ],
   providers: [
     provideClientHydration(),

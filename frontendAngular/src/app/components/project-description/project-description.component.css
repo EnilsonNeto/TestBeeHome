@@ -22,18 +22,44 @@
 }
 
 .generator {
-    background: linear-gradient(to bottom, #005cbb, #005cbb, #00376e);
+    background: linear-gradient(to bottom, #00376e, #005cbb, #005cbb);
     padding-bottom: 2rem;
 }
 
 .text-usage {
-    background-color: #ffffff;
+    margin-top: 2rem;
     text-align: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 700px;
+}
+
+.text-about {
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+}
+
+.text-technology {
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+}
+
+.text-functions {
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
 }
 
 .usage {
