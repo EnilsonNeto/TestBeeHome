@@ -10,19 +10,15 @@ import { MatPaginator } from '@angular/material/paginator';
 export class PasswordHistoryComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() passwordHistoryUpdated!: EventEmitter<any[]>;
   @Input() passwordHistory: any[] = [];
-  showPasswords: boolean = false;
+  showPasswords = false;
   paginatedDataSource = new MatTableDataSource<any>([]);
-  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    this.passwordHistoryUpdated.subscribe((history: any[]) => {
-      this.passwordHistory = [...history];
-      this.sortPasswordHistory();
-      this.updateDataSource();
-    });
+    this.passwordHistoryUpdated.subscribe(this.updatePasswordHistory);
     this.updateDataSource();
   }
 
@@ -30,24 +26,24 @@ export class PasswordHistoryComponent implements OnInit, OnChanges, AfterViewIni
     this.paginatedDataSource.paginator = this.paginator;
   }
 
-  toggleShowPasswords() {
-    this.showPasswords = !this.showPasswords;
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if (changes['passwordHistory'] && !changes['passwordHistory'].isFirstChange()) {
-      this.sortPasswordHistory();
       this.updateDataSource();
     }
   }
 
-  sortPasswordHistory() {
-    this.passwordHistory.sort((a: { generatedAt: string | number | Date }, b: { generatedAt: string | number | Date }) => 
-      new Date(b.generatedAt).getTime() - new Date(a.generatedAt).getTime()
-    );
+  toggleShowPasswords() {
+    this.showPasswords = !this.showPasswords;
   }
 
-  updateDataSource() {
+  private updatePasswordHistory = (history: any[]) => {
+    this.passwordHistory = [...history].sort((a, b) =>
+      new Date(b.generatedAt).getTime() - new Date(a.generatedAt).getTime()
+    );
+    this.updateDataSource();
+  }
+
+  private updateDataSource() {
     this.paginatedDataSource.data = this.passwordHistory;
   }
 }

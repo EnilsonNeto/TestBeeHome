@@ -12,7 +12,7 @@ import { MatSliderChange } from '@angular/material/slider';
 export class PasswordGeneratorComponent implements OnInit {
   passwordLength: number = 4;
   includeUppercase: boolean = false;
-  includeLowercase: boolean = false;
+  includeLowercase: boolean = true;
   includeNumbers: boolean = false;
   includeSpecialChars: boolean = false;
 
@@ -73,50 +73,42 @@ export class PasswordGeneratorComponent implements OnInit {
     this.passwordService.generatePassword(request).subscribe({
       next: (response: GeneratedPasswordResponse) => {
         this.generatedPassword = response.password;
-        const newPasswordEntry = {
-          password: response.password,
-          generatedAt: new Date().toISOString()
-        };
-        this.calculatePasswordStrength(this.generatedPassword || '');
-        this.passwordHistory.push(newPasswordEntry);
-        this.sortPasswordHistory();
-        this.passwordHistoryUpdated.emit([...this.passwordHistory]);
-
+        this.updatePasswordHistory(response.password);
         this.alertService.showAlert('success', 'Senha gerada com sucesso!');
       },
       error: (error) => {
         console.error('Erro ao gerar a senha:', error);
-        this.alertService.showAlert('error', 'Ocorreu um erro ao gerar a senha. Por favor selecione quais tipos de variaveis você deseja na sua senha.');
+        this.alertService.showAlert('error', 'Ocorreu um erro ao gerar a senha. Por favor selecione quais tipos de variáveis você deseja na sua senha.');
       }
     });
   }
 
+  updatePasswordHistory(password: string) {
+    const newPasswordEntry = { password, generatedAt: new Date().toISOString() };
+    this.passwordHistory.push(newPasswordEntry);
+    this.sortPasswordHistory();
+    this.passwordHistoryUpdated.emit([...this.passwordHistory]);
+    this.calculatePasswordStrength(password);
+  }
+
+
   copyPassword() {
-    const textarea = document.createElement('textarea');
-    textarea.value = this.generatedPassword || '';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    this.alertService.showAlert('success', 'Senha copiada para área de transferência');
+    navigator.clipboard.writeText(this.generatedPassword || '').then(() => {
+      this.alertService.showAlert('success', 'Senha copiada para área de transferência');
+    });
   }
 
   calculatePasswordStrength(password: string): void {
-    let strengthPoints = 0;
+    const strengthPoints = [
+      password.length >= 8,
+      /[A-Z]/.test(password),
+      /[a-z]/.test(password),
+      /[0-9]/.test(password),
+      /[^A-Za-z0-9]/.test(password)
+    ].filter(Boolean).length;
 
-    if (password.length >= 8) strengthPoints++;
-    if (/[A-Z]/.test(password)) strengthPoints++;
-    if (/[a-z]/.test(password)) strengthPoints++;
-    if (/[0-9]/.test(password)) strengthPoints++;
-    if (/[^A-Za-z0-9]/.test(password)) strengthPoints++;
-
-    if (strengthPoints <= 2) {
-      this.passwordStrength = 'weak';
-    } else if (strengthPoints === 3 || strengthPoints === 4) {
-      this.passwordStrength = 'medium';
-    } else {
-      this.passwordStrength = 'strong';
-    }
+    this.passwordStrength = strengthPoints <= 2 ? 'weak' :
+      strengthPoints === 3 || strengthPoints === 4 ? 'medium' : 'strong';
   }
 
   toggleShowPassword() {

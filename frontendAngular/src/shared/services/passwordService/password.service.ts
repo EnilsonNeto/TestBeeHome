@@ -14,9 +14,9 @@ export class PasswordService {
 
   generatePassword(request: GeneratePasswordRequest): Observable<GeneratedPasswordResponse> {
     return this.http.post<GeneratedPasswordResponse>(`${this.apiUrl}/generate_password`, request, {
-        headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' }
     });
-}
+  }
 
   getPasswordHistory(): Observable<PasswordHistoryResponse> {
     return this.http.get<PasswordHistoryResponse>(`${this.apiUrl}/password_history`);

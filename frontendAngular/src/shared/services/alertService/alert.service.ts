@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AlertService {
-  constructor() {}
+  constructor() { }
 
   showAlert(icon: 'success' | 'error' | 'warning', text: string) {
     Swal.fire({

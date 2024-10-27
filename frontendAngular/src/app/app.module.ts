@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'; import { SweetAler
 import { PasswordService } from '../shared/services/passwordService/password.service';
 import { AlertService } from '../shared/services/alertService/alert.service';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     PasswordHistoryComponent,
     ProjectDescriptionComponent,
     NavigationComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
