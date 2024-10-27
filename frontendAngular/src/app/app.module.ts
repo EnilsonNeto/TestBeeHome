@@ -3,24 +3,37 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PasswordGeneratorComponent } from './components/password-generator/password-generator.component';
-import { PasswordService } from '../shared/services/password.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { PasswordGeneratorComponent } from './components/password-generator/password-generator.component';
+import { PasswordHistoryComponent } from './components/password-history/password-history.component';
+import { ProjectDescriptionComponent } from './components/project-description/project-description.component';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { PasswordHistoryComponent } from './components/password-history/password-history.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+import { PasswordService } from '../shared/services/passwordService/password.service';
+import { AlertService } from '../shared/services/alertService/alert.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PasswordGeneratorComponent,
-    PasswordHistoryComponent
+    PasswordHistoryComponent,
+    ProjectDescriptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,13 +44,20 @@ import { PasswordHistoryComponent } from './components/password-history/password
     CommonModule,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule, 
-    MatTableModule
+    MatButtonModule,
+    MatTableModule,
+    MatCardModule,
+    MatIconModule,
+    SweetAlert2Module,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatPaginatorModule
   ],
   providers: [
     provideClientHydration(),
+    provideAnimationsAsync(),
     PasswordService,
-    provideAnimationsAsync()
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

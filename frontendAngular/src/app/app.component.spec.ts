@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { PasswordService } from '../shared/services/password.service';
+import { PasswordService } from '../shared/services/passwordService/password.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {

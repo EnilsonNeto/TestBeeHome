@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GeneratedPasswordResponse, GeneratePasswordRequest } from '../models/password.model';
-import { PasswordHistoryResponse } from '../models/password-history.model';
+import { GeneratedPasswordResponse, GeneratePasswordRequest } from '../../models/password.model';
+import { PasswordHistoryResponse } from '../../models/password-history.model';
 
 @Injectable({
   providedIn: 'root'

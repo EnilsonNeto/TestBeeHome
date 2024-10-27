@@ -3,8 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { PasswordService } from '../shared/services/password.service'; 
 import { provideHttpClient } from '@angular/common/http';
+import { PasswordService } from '../shared/services/passwordService/password.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

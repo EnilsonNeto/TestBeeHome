@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PasswordGeneratorComponent } from './password-generator.component';
-import { PasswordService } from '../../../shared/services/password.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { PasswordService } from '../../../shared/services/passwordService/password.service';
 
 describe('PasswordGeneratorComponent', () => {
   let component: PasswordGeneratorComponent;
