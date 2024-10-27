@@ -15,14 +15,15 @@ export class PasswordGeneratorComponent implements OnInit {
   includeLowercase: boolean = false;
   includeNumbers: boolean = false;
   includeSpecialChars: boolean = false;
-  
+
   generatedPassword: string | null = null;
   passwordHistory: any;
   passwordHistoryUpdated = new EventEmitter<any[]>();
 
   showPassword: boolean = true;
+  passwordStrength: string = 'weak';
 
-  constructor(private passwordService: PasswordService, private alertService: AlertService) {}
+  constructor(private passwordService: PasswordService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.loadPasswordHistory();
@@ -50,7 +51,7 @@ export class PasswordGeneratorComponent implements OnInit {
   }
 
   sortPasswordHistory() {
-    this.passwordHistory.sort((a: { generatedAt: string | number | Date }, b: { generatedAt: string | number | Date }) => 
+    this.passwordHistory.sort((a: { generatedAt: string | number | Date }, b: { generatedAt: string | number | Date }) =>
       new Date(b.generatedAt).getTime() - new Date(a.generatedAt).getTime()
     );
   }
@@ -76,9 +77,9 @@ export class PasswordGeneratorComponent implements OnInit {
           password: response.password,
           generatedAt: new Date().toISOString()
         };
-
+        this.calculatePasswordStrength(this.generatedPassword || '');
         this.passwordHistory.push(newPasswordEntry);
-        this.sortPasswordHistory(); 
+        this.sortPasswordHistory();
         this.passwordHistoryUpdated.emit([...this.passwordHistory]);
 
         this.alertService.showAlert('success', 'Senha gerada com sucesso!');
@@ -98,8 +99,25 @@ export class PasswordGeneratorComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(textarea);
     this.alertService.showAlert('success', 'Senha copiada para área de transferência');
-}
+  }
 
+  calculatePasswordStrength(password: string): void {
+    let strengthPoints = 0;
+
+    if (password.length >= 8) strengthPoints++;
+    if (/[A-Z]/.test(password)) strengthPoints++;
+    if (/[a-z]/.test(password)) strengthPoints++;
+    if (/[0-9]/.test(password)) strengthPoints++;
+    if (/[^A-Za-z0-9]/.test(password)) strengthPoints++;
+
+    if (strengthPoints <= 2) {
+      this.passwordStrength = 'weak';
+    } else if (strengthPoints === 3 || strengthPoints === 4) {
+      this.passwordStrength = 'medium';
+    } else {
+      this.passwordStrength = 'strong';
+    }
+  }
 
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
