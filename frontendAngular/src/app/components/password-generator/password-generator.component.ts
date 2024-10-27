@@ -54,7 +54,6 @@ export class PasswordGeneratorComponent implements OnInit {
       },
       error: (error) => {
         console.error('Erro ao gerar a senha:', error);
-        // Adicione mais informações, como a mensagem de erro
         if (error.error) {
             console.error('Mensagem do servidor:', error.error);
         }

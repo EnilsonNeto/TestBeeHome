@@ -14,11 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { PasswordHistoryComponent } from './components/password-history/password-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswordGeneratorComponent
+    PasswordGeneratorComponent,
+    PasswordHistoryComponent
   ],
   imports: [
     BrowserModule,
