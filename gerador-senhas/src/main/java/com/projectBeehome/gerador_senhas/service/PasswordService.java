@@ -34,7 +34,6 @@ public class PasswordService {
             password.append(allowedChars.charAt(random.nextInt(allowedChars.length())));
         }
 
-        // Salvando no banco de dados
         PasswordHistory passwordHistory = new PasswordHistory();
         passwordHistory.setPassword(password.toString());
         passwordHistory.setGeneratedAt(LocalDateTime.now());
