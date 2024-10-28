@@ -67,6 +67,16 @@ Para uma visualização rápida do projeto, você pode assistir aos vídeos abai
 
 6. Acesse a aplicação em seu navegador em `http://localhost:4200` para o frontend e `http://localhost:8080/api` para os endpoints do backend.
 
+## Endpoints da API
+
+### Geração de Senhas
+
+- **POST** `/api/generate-password`: Gera uma nova senha com base nas opções fornecidas.
+
+### Histórico de Senhas
+
+- **GET** `/api/password-history`: Lista todas as senhas geradas anteriormente.
+
 ## Estrutura do Banco de Dados
 
 O banco de dados é modelado para armazenar o histórico de senhas geradas. O script SQL para a criação da tabela é o seguinte:
@@ -77,4 +87,3 @@ CREATE TABLE IF NOT EXISTS password_history (
     password VARCHAR(255) NOT NULL,
     generated_at TIMESTAMP NOT NULL
 );
-
