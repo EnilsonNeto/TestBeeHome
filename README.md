@@ -79,9 +79,13 @@ Para uma visualização rápida do projeto, você pode assistir aos vídeos abai
 
 ## Estrutura do Banco de Dados
 
-O banco de dados é modelado para armazenar o histórico de senhas geradas. O script SQL para a criação da tabela é o seguinte:
+O banco de dados é modelado para armazenar o histórico de senhas geradas. O script SQL para a criação da database e da tabela é o seguinte:
 
 ```sql
+CREATE DATABASE gerador_senhas;
+
+\connect gerador_senhas;
+
 CREATE TABLE IF NOT EXISTS password_history (
     id SERIAL PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
