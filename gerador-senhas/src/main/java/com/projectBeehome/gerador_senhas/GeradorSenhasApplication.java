@@ -12,15 +12,7 @@ import com.projectBeehome.gerador_senhas.service.PasswordService;
 public class GeradorSenhasApplication {
 
     @Autowired
-    private PasswordService passwordService;
-
     public static void main(String[] args) {
         SpringApplication.run(GeradorSenhasApplication.class, args);
-    }
-
-    @EventListener(ApplicationReadyEvent.class)
-    public void onApplicationStartUp() {
-        String newPassword = passwordService.generatePassword(12, true, true, true, true);
-        System.out.println("Nova senha gerada ao iniciar a aplicação: " + newPassword);
     }
 }

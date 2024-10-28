@@ -1,0 +1,82 @@
+@use '@angular/material' as mat;
+
+@import "./theme/global.scss";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@include mat.core();
+
+$steps-primary: mat.define-palette(mat.$blue-palette);
+$steps-accent: mat.define-palette(mat.$indigo-palette, 900);
+$custom-color: #084298;
+
+$steps-warn: mat.define-palette(mat.$red-palette);
+
+$steps-theme: mat.define-light-theme((
+  color: (
+    primary: (
+      default: $custom-color,
+      lighter: lighten($custom-color, 10%),
+      darker: darken($custom-color, 10%)
+    ),
+    accent: $steps-accent,
+    warn: $steps-warn,
+  ),
+  text: (
+    primary: #fff,
+    accent: #fff,
+    warn: #fff,
+  )
+));
+
+@include mat.all-component-themes($steps-theme);
+
+html, body { height: 100%; }
+
+.mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+.mat-primary .mat-button-wrapper {
+  color: white;
+}
+
+.wrapper, body, html{
+    min-height: 0 !important;
+}
+
+.content-wrapper {
+  background-color: #ffffff;
+}
+
+.mat-tab-body-content {
+  display: flex !important;
+  padding: 2rem !important;
+}
+
+.mat-tab-labels {
+  justify-content: space-around !important;
+  width: 100%;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #000;
+    background-color: #CFE2FF;
+    font-weight: 550;
+}
+
+.backIcon {
+  background-color: #dedede;
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
