@@ -1,4 +1,3 @@
-// Crie uma nova classe DTO
 package com.projectBeehome.gerador_senhas.model;
 
 public class GeneratePasswordRequest {
@@ -8,7 +7,6 @@ public class GeneratePasswordRequest {
     private boolean includeNumbers;
     private boolean includeSpecialChars;
 
-    // Getters e Setters
     public int getLength() {
         return length;
     }

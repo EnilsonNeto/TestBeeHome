@@ -23,7 +23,6 @@ public class PasswordHistory {
     @Column(nullable = false)
     private LocalDateTime generatedAt;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

@@ -91,7 +91,6 @@ export class PasswordGeneratorComponent implements OnInit {
     this.calculatePasswordStrength(password);
   }
 
-
   copyPassword() {
     navigator.clipboard.writeText(this.generatedPassword || '').then(() => {
       this.alertService.showAlert('success', 'Senha copiada para área de transferência');
