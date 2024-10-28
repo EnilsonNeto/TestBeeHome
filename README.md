@@ -71,11 +71,11 @@ Para uma visualização rápida do projeto, você pode assistir aos vídeos abai
 
 ### Geração de Senhas
 
-- **POST** `/api/generate-password`: Gera uma nova senha com base nas opções fornecidas.
+- **POST** `/api/generate_password`: Gera uma nova senha com base nas opções fornecidas.
 
 ### Histórico de Senhas
 
-- **GET** `/api/password-history`: Lista todas as senhas geradas anteriormente.
+- **GET** `/api/password_history`: Lista todas as senhas geradas anteriormente.
 
 ## Estrutura do Banco de Dados
 
