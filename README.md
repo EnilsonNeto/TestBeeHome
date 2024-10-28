@@ -22,8 +22,8 @@ Este projeto é uma aplicação web que permite a geração de senhas de forma s
 
 Para uma visualização rápida do projeto, você pode assistir aos vídeos abaixo. Eles mostram uma demonstração das principais funcionalidades e como utilizar o aplicativo.
 
-![Demonstração do Projeto - Geração de Senhas](assets/computer.gif)
-![Demonstração do Projeto - Histórico de Senhas](assets/mobile.gif)
+![Demonstração do Projeto - Geração de Senhas](frontendAngular/src/assets/computer.gif)
+![Demonstração do Projeto - Histórico de Senhas](frontendAngular/src/assets/mobile.gif)
 
 ## Como Executar o Projeto
 
@@ -48,7 +48,7 @@ Para uma visualização rápida do projeto, você pode assistir aos vídeos abai
      ```
    - Execute a aplicação:
      ```bash
-     ng serve
+     npm start
      ```
 
 4. Para o **Backend**:
