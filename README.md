@@ -1,7 +1,3 @@
-# Teste para Vaga de Pleno Full Stack
-
-Bem-vindo ao repositório deste teste desenvolvido para a vaga de pleno full stack. Este projeto foi criado para demonstrar habilidades em Angular 18, Java 23 e Spring Boot.
-
 ## Visão Geral
 
 Este projeto é uma aplicação web que permite a geração de senhas de forma segura e o armazenamento do histórico de senhas geradas. A aplicação utiliza Angular para o frontend e Java com Spring Boot para o backend, garantindo uma arquitetura robusta e eficiente.
